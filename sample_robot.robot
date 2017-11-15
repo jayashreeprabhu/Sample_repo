@@ -6,10 +6,10 @@
 	log    hello
 	
 [TC-003]-Test three
-	#log    hello
+	log    hello
 	
 [TC-004]-Test four
-	#log    hello
+	log    hello
 
 [TC-005]-Test five
 	log    hello
