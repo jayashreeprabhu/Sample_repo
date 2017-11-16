@@ -4,8 +4,8 @@ requests.packages.urllib3.disable_warnings()
 
 server = Jenkins('https://jenkins.onemw.net', username='jayashreeprabhu', password='d801d349b959cff99291ce53fec79b80', ssl_verify=False)
 
-job_name = 'StbFullStackRegression'
-# job_name = 'Deploy to Lab5A ITC shared Origin'
+# job_name = 'StbFullStackRegression'
+job_name = 'Sample'
 print "all jobs"
 
 job_names_list = []
@@ -19,17 +19,25 @@ job_names_list = []
 #         print job_instance.get_revision()
 
 # job = server[job_name]
+# parameters = build.get_actions()['parameters']
 
 job = server.get_job(job_name)  # or j[JOB_NAME]
-build = job.get_build(1070)
-parameters = build.get_actions()['parameters']
-meta = job.get_build_metadata(1070)
-# result = build.get_resultset()
-# x = build.get_env_vars()
-x = build.get_env_vars()
-print "========================="
-print x
-print "========================="
+curr = job.is_running()
+number = job.get_last_buildnumber()
+build = job.get_build(number)
+up_name = build.get_upstream_job_name()
+up_build = build.get_upstream_build()
+meta = up_build.get_status()
+
+
+print curr
+print number
+print build
+print up_name
+print up_build
+print meta
+
+
 
 
 # for i in job_names_list:
