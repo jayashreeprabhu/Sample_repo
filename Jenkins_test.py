@@ -5,7 +5,7 @@ requests.packages.urllib3.disable_warnings()
 server = Jenkins('https://jenkins.onemw.net', username='jayashreeprabhu', password='d801d349b959cff99291ce53fec79b80', ssl_verify=False)
 
 # job_name = 'StbFullStackRegression'
-job_name = 'Sample'
+job_name = 'STB_Tests/Sample'
 print "all jobs"
 
 job_names_list = []
@@ -24,6 +24,7 @@ job_names_list = []
 job = server.get_job(job_name)  # or j[JOB_NAME]
 curr = job.is_running()
 number = job.get_last_buildnumber()
+number = 
 build = job.get_build(number)
 up_name = build.get_upstream_job_name()
 up_build = build.get_upstream_build()
